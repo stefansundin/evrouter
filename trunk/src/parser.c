@@ -21,8 +21,13 @@ Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 $Id$
 
 $Log$
-Revision 1.1  2004/09/07 22:52:34  alexios
-Initial revision
+Revision 2.0  2004/09/07 22:57:39  alexios
+Stepped version to recover CVS repository after near-catastrophic disk
+crash.
+
+Revision 1.1.1.1  2004/09/07 22:52:34  alexios
+Initial post-crash revision, re-initialised to recover CVS repository after
+near-catastrophic disk crash.
 
 Revision 1.2  2004/01/28 21:43:50  alexios
 Added 'ctrl' alias for modifier 2, 'control'. Changed name of rc file

@@ -1,8 +1,13 @@
 dnl $Id$
 dnl
 dnl $Log$
-dnl Revision 1.1  2004/09/07 22:52:34  alexios
-dnl Initial revision
+dnl Revision 2.0  2004/09/07 22:57:36  alexios
+dnl Stepped version to recover CVS repository after near-catastrophic disk
+dnl crash.
+dnl
+dnl Revision 1.1.1.1  2004/09/07 22:52:34  alexios
+dnl Initial post-crash revision, re-initialised to recover CVS repository after
+dnl near-catastrophic disk crash.
 dnl
 dnl Revision 1.2  2004/02/12 00:13:34  alexios
 dnl Changed evwheel to evrouter.
