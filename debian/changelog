@@ -1,3 +1,12 @@
+evrouter (0.3.3) unstable; urgency=low
+
+  * Interim release to rebuild CVS repository after near-catastrophic disk
+    failure.
+  * Changed email address.
+  * Changed URL.
+
+ -- Alexios Chouchoulas <alexios@vennea.demon.co.uk>  Tue,  7 Sep 2004 23:59:28 +0100
+
 evrouter (0.3.2) unstable; urgency=medium
 
   * Added -q flag to kill the running daemon.
@@ -10,14 +19,14 @@ evrouter (0.3.2) unstable; urgency=medium
   * Removed bad-window message (unless --verbose was specified).
   * Added a newline to the bad-window message.
 
- -- Alexios Chouchoulas <alexios@vennea.demon.co.uk>  Thu, 12 Feb 2004 00:32:54 +0000
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Thu, 12 Feb 2004 00:32:54 +0000
 
 evrouter (0.3.1) unstable; urgency=low
 
   * A few slight changes and cleanups in the build and accoompanying
     files.
 
- -- Alexios Chouchoulas <alexios@vennea.demon.co.uk>  Thu,  5 Feb 2004 14:27:55 +0000
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Thu,  5 Feb 2004 14:27:55 +0000
 
 evrouter (0.3) unstable; urgency=medium
 
@@ -29,7 +38,7 @@ evrouter (0.3) unstable; urgency=medium
   * Added argp support.
   * Cleaned up original source.
 
- -- Alexios Chouchoulas <alexios@vennea.demon.co.uk>  Thu, 29 Jan 2004 10:34:27 +0000
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Thu, 29 Jan 2004 10:34:27 +0000
 
 evrouter (0.2) unstable; urgency=low
 
@@ -37,7 +46,7 @@ evrouter (0.2) unstable; urgency=low
   * Added shell actions.
   * Code cleanups and bug fixes.
 
- -- Alexios Chouchoulas <alexios@vennea.demon.co.uk>  Thu, 15 Jan 2003 21:56:00 +0000
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Thu, 15 Jan 2003 21:56:00 +0000
 
 evrouter (0.1) unstable; urgency=low
 
@@ -46,4 +55,4 @@ evrouter (0.1) unstable; urgency=low
   * Added action mechanism to allow extensions.
   * Initial revision.
 
- -- Alexios Chouchoulas <alexios@vennea.demon.co.uk>  Thu, 11 Jan 2003 19:23:45 +0000
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Thu, 11 Jan 2003 19:23:45 +0000
