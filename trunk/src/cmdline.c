@@ -21,6 +21,9 @@ Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 $Id$
 
 $Log$
+Revision 2.1  2004/09/07 23:00:59  alexios
+Changed email address and URL.
+
 Revision 2.0  2004/09/07 22:57:39  alexios
 Stepped version to recover CVS repository after near-catastrophic disk
 crash.
@@ -77,7 +80,7 @@ static void show_version (FILE *stream, struct argp_state *state);
 
 
 /* The argp functions examine these global variables.  */
-const char *argp_program_bug_address = "<alexios@vennea.demon.co.uk>";
+const char *argp_program_bug_address = "<alexios@bedroomlan.org>";
 void (*argp_program_version_hook) (FILE *, struct argp_state *) = show_version;
 
 
@@ -123,7 +126,7 @@ show_version (FILE *stream, struct argp_state *state)
 	   from other programs.  */
 	fputs(PACKAGE" "VERSION"\n\n", stream);
 	fprintf(stream, 
-		"Written by Alexios Chouchoulas <alexios@vennea.demon.co.uk>.\n"
+		"Written by Alexios Chouchoulas <alexios@bedroomlan.org>.\n"
 		"Copyright (C) %s %s\n"
 		"This program is free software; you may redistribute it under the terms of\n"
 		"the GNU General Public License.  This program has absolutely no warranty.\n",
