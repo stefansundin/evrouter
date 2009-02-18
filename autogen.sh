@@ -3,30 +3,31 @@
 # $Id$
 #
 # $Log$
-# Revision 2.0  2004/09/07 22:57:36  alexios
-# Stepped version to recover CVS repository after near-catastrophic disk
-# crash.
-#
-# Revision 1.1.1.1  2004/09/07 22:52:34  alexios
-# Initial post-crash revision, re-initialised to recover CVS repository after
-# near-catastrophic disk crash.
-#
-# Revision 1.1.1.1  2004/01/28 16:21:41  alexios
-# Initial imported revision.
-#
 
-# Partially (and shamelessly) stolen from XMMS
+# Automake version. Do NOT remove the dash
+amver="" # -1.10
+# Autoconf version. No dash here.
+acver="" #2.50
 
-(automake --version) < /dev/null > /dev/null 2>&1 || {
+#echo Copying ltdl.
+#libtoolize --copy --ltdl
+#cat <<EOF
+#
+#Warnings about existing (or nonexistent) files above are acceptable.
+#
+#We will now use GNU automake$amver and GNU autoconf$acver. Change $0
+#to select different versions.
+#EOF
+(automake${amver} --version) < /dev/null > /dev/null 2>&1 || {
 	echo;
-	echo "You must have automake installed";
+	echo "You must have automake${amver} installed";
 	echo;
 	exit;
 }
 
-(autoconf --version) < /dev/null > /dev/null 2>&1 || {
+(autoconf${acver} --version) < /dev/null > /dev/null 2>&1 || {
 	echo;
-	echo "You must have autoconf installed";
+	echo "You must have autoconf${acver} installed";
 	echo;
 	exit;
 }
@@ -34,9 +35,14 @@
 echo "Generating configuration files, please wait...."
 echo;
 
-aclocal-1.6 $ACLOCAL_FLAGS;
-autoheader;
-automake-1.6 --add-missing;
-autoconf;
+#autopoint
+libtoolize
+aclocal${amver} $ACLOCAL_FLAGS
+autoconf${acver};
+#autoheader${acver};
+automake${amver} --add-missing;
 
-./configure $@
+#echo "Running configure $@"
+#echo;
+
+# ./configure $@

@@ -16,7 +16,7 @@
 # Initial imported revision.
 #
 
-CFLAGS=-Wall -g -D__USE_GNU $(XMMS_CFLAGS)
+evrouter_CFLAGS=$(CFLAGS) -Wall -g -D__USE_GNU $(XMMS_CFLAGS)
 #LDADD=$(XMMS_LDFLAGS)
 bin_PROGRAMS=evrouter
 evrouter_SOURCES=\

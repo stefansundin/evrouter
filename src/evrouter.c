@@ -369,7 +369,7 @@ device_read ()
 	int      i, j;
 	int      maxfd = 0;
 	int      sel;
-	fd_set   readset;
+	fd_set   readset, errset;
 
 	/* Get the maximum file descriptor */
 
@@ -381,11 +381,14 @@ device_read ()
 
 	while (1) {
 		FD_ZERO (&readset);
+		FD_ZERO (&errset);
 		for (i = 0; i < num_devs; i++) {
+			if (devs [i].fd < 0) continue;
 			if (devs [i].filename) FD_SET (devs [i].fd, &readset);
+			if (devs [i].filename) FD_SET (devs [i].fd, &errset);
 		}
 
-		sel = select (maxfd + 1, &readset, NULL, NULL, NULL);
+		sel = select (maxfd + 1, &readset, NULL, &errset, NULL);
 
 		/* Read X Events */
 
@@ -405,6 +408,14 @@ device_read ()
 			if (!FD_ISSET (devs [i].fd, &readset)) continue;
 
 			nb = read (devs [i].fd, ev, sizeof (struct input_event) * NEV);
+
+			/* If an error occurs, remove the device. */
+
+			if (nb < 0) {
+				close (devs[i].fd);
+				devs[i].fd = -1;
+				continue;
+			}
 
 			for (j = 0; j < nb / sizeof (struct input_event); j++) {
 				if (train_mode) print_event (&devs [i], i, &ev [j]);

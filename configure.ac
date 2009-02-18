@@ -20,15 +20,30 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/evrouter.c)
 
+AC_CANONICAL_SYSTEM
+AC_CANONICAL_HOST
+AC_CANONICAL_TARGET
+
 dnl Magic to obtain the version from debian/changelog, where it should
 dnl reside.
+AM_INIT_AUTOMAKE($PACKAGE,$$PACKAGE_VERSION)
 
-ver=`grep urgency= debian/changelog |head -1|sed -e 's/^.*(\(.*\)).*$/\1/'`
+dnl Essential info (some autodetected)
+PACKAGE=`grep urgency= debian/changelog|head -1 | sed 's/ .*//'`
+PACKAGE_VERSION=`grep urgency= debian/changelog |head -1|sed -e 's/^.*(\(.*\)).*$/\1/'`
+dnl LIBVERSION=0:0:0
+ISODATE=`date +%Y-%m-%d`
+
+dnl Export essential info.
+AC_SUBST(PACKAGE)
+AC_SUBST(PACKAGE_VERSION)
+dnl AC_SUBST(LIBVERSION)
+AC_SUBST(ISODATE)
 
 dnl Every other copy of the package version number gets its value from
 dnl here (BUT NOT the files in debian/)
 
-AM_INIT_AUTOMAKE(evrouter, $ver)
+AM_INIT_AUTOMAKE(evrouter, $PACKAGE_VERSION)
 
 dnl create a config.h file (Automake will add -DHAVE_CONFIG_H)
 AM_CONFIG_HEADER(config.h)
@@ -50,7 +65,7 @@ AC_PROG_CPP
 AC_PROG_CXX
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AC_PROG_RANLIB
+AM_PROG_CC_C_O
 
 AC_PATH_XTRA
 
@@ -60,8 +75,8 @@ LDFLAGS="$LDFLAGS $X_LIBS"
 CFLAGS="$CFLAGS $X_CFLAGS"
 AC_CHECK_LIB(X11,XInitExtension,,AC_MSG_ERROR([
 *** We need the libX11 development library to build this program.]))
-AC_CHECK_LIB(Xt,XtOpenDisplay,,AC_MSG_ERROR([
-*** We need the libXt development library to build this program.]))
+dnl AC_CHECK_LIB(Xt,XtOpenDisplay,,AC_MSG_ERROR([
+dnl *** We need the libXt development library to build this program.]))
 AC_CHECK_LIB(Xtst,XTestFakeKeyEvent,,AC_MSG_ERROR([
 *** We need the libXtst development library to build this program.]))
 
