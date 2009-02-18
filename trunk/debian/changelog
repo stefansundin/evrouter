@@ -1,11 +1,12 @@
-evrouter (0.3.4) unstable; urgency=low
+evrouter (0.3.4) unstable; urgency=medium
 
   * Fixed segmentation fault when event devices are removed.
   * Modernised GNU build infrastructure.
   * Re-debianised to keep package ahead of Debian packaging developments.
   * Fixed needless dependencies.
+  * Changed URLs yet again.
 
- -- Alexios Chouchoulas <alexios@bedroomlan.org>  Wed, 18 Feb 2009 11:07:22 +0200
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Wed, 18 Feb 2009 11:15:32 +0200
 
 evrouter (0.3.3) unstable; urgency=low
 
