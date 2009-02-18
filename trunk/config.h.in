@@ -1,4 +1,4 @@
-/* config.h.in.  Generated from configure.in by autoheader.  */
+/* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Enable shell actions */
 #undef ENABLE_SHELL
@@ -17,9 +17,6 @@
 
 /* Define to 1 if you have the `X11' library (-lX11). */
 #undef HAVE_LIBX11
-
-/* Define to 1 if you have the `Xt' library (-lXt). */
-#undef HAVE_LIBXT
 
 /* Define to 1 if you have the `Xtst' library (-lXtst). */
 #undef HAVE_LIBXTST
@@ -88,6 +85,9 @@
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
+
+/* Define to 1 if your C compiler doesn't accept -c and -o together. */
+#undef NO_MINUS_C_MINUS_O
 
 /* Name of package */
 #undef PACKAGE

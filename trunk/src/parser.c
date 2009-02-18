@@ -506,7 +506,7 @@ parse (char *fname)
 		}
 	}
 
-	printf ("Parsed %d rules, %d bytes\n", num_rules, sizeof (event_rule_t) * num_rules);
+	printf ("Parsed %d rules, %lu bytes\n", num_rules, sizeof (event_rule_t) * num_rules);
 
 	return error_count;
 }
