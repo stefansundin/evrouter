@@ -1,3 +1,9 @@
+evrouter (0.4) unstable; urgency=low
+
+  * Incorporated patch www.digriz.org.uk.
+
+ -- Alexios Chouchoulas <alexios@bedroomlan.org>  Tue, 03 Mar 2009 02:11:06 +0200
+
 evrouter (0.3.4) unstable; urgency=medium
 
   * Fixed segmentation fault when event devices are removed.
