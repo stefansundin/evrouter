@@ -53,7 +53,8 @@ typedef unsigned int set_t;
 
 typedef enum {
 	evt_key,
-	evt_rel
+	evt_rel,
+	evt_sw
 } event_type_t;
 
 typedef enum {

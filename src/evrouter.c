@@ -91,12 +91,14 @@ char * progname;
 
 
 #if 0
-#define MAX_TYPE 4
+#define MAX_TYPE 6
 static char * event_types [MAX_TYPE] = {
 	"syn",			/* 0 */
 	"key",			/* 1 */
 	"rel",			/* 2 */
 	"abs",			/* 3 */
+	"msc",			/* 4 */
+	"sw",			/* 5 */
 };
 #endif
 
@@ -244,7 +246,8 @@ handle_event (evdev_t * dev, int devindex, struct input_event * ev)
 	XErrorHandler   old_handler;
 		
 	if ((ev->type != EV_KEY) && 
-	    ((ev->type != EV_REL) || (ev->code < REL_Z))) return;
+	    ((ev->type != EV_REL) || (ev->code < REL_Z)) &&
+	    (ev->type != EV_SW)) return;
 
 	assert (devindex >= 0);
 	assert (devindex < 32);
@@ -287,6 +290,11 @@ handle_event (evdev_t * dev, int devindex, struct input_event * ev)
 		else if ((ev->type == EV_REL) && (r->type == evt_rel) &&
 			 (r->arg1 == ev->code) && (r->arg2 == ev->value)) {
 			/*printf ("MATCHED RELATIVE AXIS\n");*/
+		}
+
+		else if ((ev->type == EV_SW) && (r->type == evt_sw) &&
+			(r->arg1 == ev->code) && (r->arg2 == ev->value)) {
+			printf ("MATCHED SW type=%d, value=%d\n", ev->type, ev->value, r->arg1);
 		}
 
 		else continue;
@@ -359,6 +367,14 @@ print_event (evdev_t * dev, int devindex, struct input_event * ev)
 		       dev->filename,
 		       string_modifiers (get_modifier_state (d)),
 		       ev->code, ev->value);
+	} else if (ev->type == EV_SW) {
+		get_focus ();
+
+		printf("\"%s\" \"%s\" %s sw/%d/%d \"fill this in!\"\n",
+			dev->devname,
+			dev->filename,
+			string_modifiers (get_modifier_state (d)),
+			ev->code, ev->value);
 	}
 }
 

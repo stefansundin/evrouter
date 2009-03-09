@@ -348,6 +348,23 @@ parse_event (int nl, event_rule_t * rule, char * event)
 		}
 	}
 
+	/* A SW event */
+
+	else if (!strcmp (evtype, "sw")) {
+		rule->type = evt_sw;
+		if (sscanf (arg1, "%d", &rule->arg1) != 1) {
+			print_parse_error (error_eventspec_rel, arg1);
+			return -1;
+		}
+		if (arg2 == NULL) {
+			print_parse_error (error_eventspec_rel2, NULL);
+			return -1;
+		} else if (sscanf (arg2, "%d", &rule->arg2) != 1) {
+			print_parse_error (error_eventspec_rel, arg2);
+			return -1;
+		}
+	}
+
 	return 0;
 }
 

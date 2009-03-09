@@ -33,3 +33,8 @@ Version 0.3.2:
 * Stephen Graham for proposing the -q option (even though I already
   needed it), and for spotting the foreground option that
   wouldn't.
+
+Version 0.4:
+
+* Added patch from http://www.digriz.org.uk/debian/fujitsu/t2010 (support
+  for switch events).
